@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Only Bangla Font Input</title>
+<script>
+    function validateBanglaInput(input) {
+        // Regular expression to match Bangla characters
+        var banglaRegex = /^[\u0980-\u09FF\s]+$/;
+        
+        // Check if the input matches the Bangla regex
+        if (!banglaRegex.test(input.value)) {
+            // If not, clear the input value
+            input.value = input.value.replace(/[^\u0980-\u09FF\s]+/g, '');
+        }
+    }
+</script>
+</head>
+<body>
+
+<form>
+    <label for="banglaInput">Enter Bangla Text:</label><br>
+    <input type="text" id="banglaInput" name="banglaInput" oninput="validateBanglaInput(this)">
+</form>
+
+</body>
+</html>
